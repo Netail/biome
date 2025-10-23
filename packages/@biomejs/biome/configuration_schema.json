@@ -3176,6 +3176,16 @@
 			"type": "object",
 			"additionalProperties": false
 		},
+		"NoEmptyDocumentationConfiguration": {
+			"anyOf": [
+				{ "$ref": "#/definitions/RulePlainConfiguration" },
+				{ "$ref": "#/definitions/RuleWithNoEmptyDocumentationOptions" }
+			]
+		},
+		"NoEmptyDocumentationOptions": {
+			"type": "object",
+			"additionalProperties": false
+		},
 		"NoEmptyInterfaceConfiguration": {
 			"anyOf": [
 				{ "$ref": "#/definitions/RulePlainConfiguration" },
@@ -5095,6 +5105,13 @@
 						{ "type": "null" }
 					]
 				},
+				"noEmptyDocumentation": {
+					"description": "Disallow empty comments",
+					"anyOf": [
+						{ "$ref": "#/definitions/NoEmptyDocumentationConfiguration" },
+						{ "type": "null" }
+					]
+				},
 				"noEmptySource": {
 					"description": "Disallow empty sources.",
 					"anyOf": [
@@ -6967,6 +6984,21 @@
 					"allOf": [
 						{ "$ref": "#/definitions/NoEmptyCharacterClassInRegexOptions" }
 					]
+				}
+			},
+			"additionalProperties": false
+		},
+		"RuleWithNoEmptyDocumentationOptions": {
+			"type": "object",
+			"required": ["level"],
+			"properties": {
+				"level": {
+					"description": "The severity of the emitted diagnostics by the rule",
+					"allOf": [{ "$ref": "#/definitions/RulePlainConfiguration" }]
+				},
+				"options": {
+					"description": "Rule's options",
+					"allOf": [{ "$ref": "#/definitions/NoEmptyDocumentationOptions" }]
 				}
 			},
 			"additionalProperties": false

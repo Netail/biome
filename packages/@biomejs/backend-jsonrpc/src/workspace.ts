@@ -1669,6 +1669,10 @@ export interface Nursery {
 	 */
 	noDuplicateDependencies?: RuleConfiguration_for_NoDuplicateDependenciesOptions;
 	/**
+	 * Disallow empty comments
+	 */
+	noEmptyDocumentation?: RuleConfiguration_for_NoEmptyDocumentationOptions;
+	/**
 	 * Disallow empty sources.
 	 */
 	noEmptySource?: RuleConfiguration_for_NoEmptySourceOptions;
@@ -3048,6 +3052,9 @@ export type RuleConfiguration_for_NoDeprecatedImportsOptions =
 export type RuleConfiguration_for_NoDuplicateDependenciesOptions =
 	| RulePlainConfiguration
 	| RuleWithOptions_for_NoDuplicateDependenciesOptions;
+export type RuleConfiguration_for_NoEmptyDocumentationOptions =
+	| RulePlainConfiguration
+	| RuleWithOptions_for_NoEmptyDocumentationOptions;
 export type RuleConfiguration_for_NoEmptySourceOptions =
 	| RulePlainConfiguration
 	| RuleWithOptions_for_NoEmptySourceOptions;
@@ -5475,6 +5482,16 @@ export interface RuleWithOptions_for_NoDuplicateDependenciesOptions {
 	 * Rule's options
 	 */
 	options: NoDuplicateDependenciesOptions;
+}
+export interface RuleWithOptions_for_NoEmptyDocumentationOptions {
+	/**
+	 * The severity of the emitted diagnostics by the rule
+	 */
+	level: RulePlainConfiguration;
+	/**
+	 * Rule's options
+	 */
+	options: NoEmptyDocumentationOptions;
 }
 export interface RuleWithOptions_for_NoEmptySourceOptions {
 	/**
@@ -8230,6 +8247,7 @@ export interface UseValidTypeofOptions {}
 export interface UseYieldOptions {}
 export interface NoDeprecatedImportsOptions {}
 export interface NoDuplicateDependenciesOptions {}
+export interface NoEmptyDocumentationOptions {}
 export interface NoEmptySourceOptions {
 	/**
 	 * Whether comments are considered meaningful
@@ -9025,6 +9043,7 @@ export type Category =
 	| "lint/nursery/noColorInvalidHex"
 	| "lint/nursery/noDeprecatedImports"
 	| "lint/nursery/noDuplicateDependencies"
+	| "lint/nursery/noEmptyDocumentation"
 	| "lint/nursery/noEmptySource"
 	| "lint/nursery/noFloatingPromises"
 	| "lint/nursery/noImplicitCoercion"
