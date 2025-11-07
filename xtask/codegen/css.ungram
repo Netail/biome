@@ -661,6 +661,22 @@ AnyCssAtRule =
 	| TwConfigAtRule
 	| TwPluginAtRule
 	| TwSlotAtRule
+	// SCSS at rules
+	| ScssUseAtRule
+	| ScssForwardAtRule
+	| ScssMixinAtRule
+	| ScssIncludeAtRule
+	| ScssFunctionAtRule
+	| ScssExtendAtRule
+	| ScssErrorAtRule
+	| ScssWarnAtRule
+	| ScssDebugAtRule
+	| ScssAtRootAtRule
+	| ScssIfAtRule
+	| ScssElseAtRule
+	| ScssEachAtRule
+	| ScssForAtRule
+	| ScssWhileAtRule
 	// Unknowns
 	| CssUnknownBlockAtRule
 	| CssUnknownValueAtRule
@@ -1992,3 +2008,96 @@ TwPluginAtRule =
 TwSlotAtRule =
 	'slot'
 	';'
+
+// #app {}
+// ^^^^
+ScssVariable =
+	'$'
+	name: CssCustomIdentifier
+
+// TODO: as, with
+ScssUseAtRule =
+  'use'
+  path: CssString
+  ';'
+
+// TODO: as, with, hide, show
+ScssForwardAtRule =
+  'forward'
+  path: CssString
+  ';'
+
+ScssMixinAtRule =
+  'mixin'
+	name: CssCustomIdentifier
+	block: AnyCssDeclarationBlock
+
+ScssIncludeAtRule =
+  'include'
+  source: CssCustomIdentifier
+  ';'
+
+// TODO:
+ScssFunctionAtRule =
+  'function'
+  path: CssString
+  ';'
+
+ScssExtendAtRule =
+  'include'
+  source: CssClassSelector
+  ';'
+
+// TODO:
+ScssErrorAtRule =
+  'error'
+  path: CssString
+  ';'
+
+// TODO:
+ScssWarnAtRule =
+  'warn'
+  path: CssString
+  ';'
+
+// TODO:
+ScssDebugAtRule =
+  'debug'
+  path: CssString
+  ';'
+
+// TODO:
+ScssAtRootAtRule =
+  'at-root'
+  path: CssString
+  ';'
+
+// TODO:
+ScssIfAtRule =
+  'at-root'
+  path: CssString
+  ';'
+
+// TODO:
+ScssElseAtRule =
+  'at-root'
+  path: CssString
+  ';'
+
+// TODO:
+ScssEachAtRule =
+  'at-root'
+  path: CssString
+  ';'
+
+// TODO:
+ScssForAtRule =
+  'at-root'
+  path: CssString
+  ';'
+
+// TODO:
+ScssWhileAtRule =
+  'at-root'
+  path: CssString
+  ';'
