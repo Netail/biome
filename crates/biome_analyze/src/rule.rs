@@ -133,6 +133,8 @@ pub enum RuleSource {
     EslintQwik(&'static str),
     /// Rules from [Eslint Plugin React](https://github.com/jsx-eslint/eslint-plugin-react)
     EslintReact(&'static str),
+    /// Rules from [eslint-react.xyz](https://eslint-react.xyz/)
+    EslintReactDom(&'static str),
     /// Rules from [Eslint Plugin React Hooks](https://github.com/facebook/react/blob/main/packages/eslint-plugin-react-hooks/README.md)
     EslintReactHooks(&'static str),
     /// Rules from [Eslint Plugin React Prefer Function Component](https://github.com/tatethurston/eslint-plugin-react-prefer-function-component)
@@ -197,6 +199,7 @@ impl std::fmt::Display for RuleSource {
             Self::EslintPerfectionist(_) => write!(f, "eslint-plugin-perfectionist"),
             Self::EslintQwik(_) => write!(f, "eslint-plugin-qwik"),
             Self::EslintReact(_) => write!(f, "eslint-plugin-react"),
+            Self::EslintReactDom(_) => write!(f, "eslint-plugin-react-dom"),
             Self::EslintReactHooks(_) => write!(f, "eslint-plugin-react-hooks"),
             Self::EslintReactPreferFunctionComponent(_) => {
                 write!(f, "eslint-plugin-react-prefer-function-component")
@@ -279,6 +282,7 @@ impl RuleSource {
             | Self::EslintPerfectionist(rule_name)
             | Self::EslintQwik(rule_name)
             | Self::EslintReact(rule_name)
+            | Self::EslintReactDom(rule_name)
             | Self::EslintReactHooks(rule_name)
             | Self::EslintReactPreferFunctionComponent(rule_name)
             | Self::EslintReactRefresh(rule_name)
@@ -323,6 +327,7 @@ impl RuleSource {
             Self::EslintPerfectionist(rule_name) => format!("perfectionist/{rule_name}"),
             Self::EslintQwik(rule_name) => format!("qwik/{rule_name}"),
             Self::EslintReact(rule_name) => format!("react/{rule_name}"),
+            Self::EslintReactDom(rule_name) => format!("react-dom/{rule_name}"),
             Self::EslintReactHooks(rule_name) => format!("react-hooks/{rule_name}"),
             Self::EslintReactPreferFunctionComponent(rule_name) => {
                 format!("react-prefer-function-component/{rule_name}")
@@ -363,6 +368,7 @@ impl RuleSource {
             Self::EslintPerfectionist(rule_name) => format!("https://perfectionist.dev/rules/{rule_name}"),
             Self::EslintQwik(rule_name) => format!("https://qwik.dev/docs/advanced/eslint/#{rule_name}"),
             Self::EslintReact(rule_name) => format!("https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/{rule_name}.md"),
+            Self::EslintReactDom(rule_name) => format!("https://eslint-react.xyz/docs/rules/dom-{rule_name}"),
             Self::EslintReactHooks(_) =>  "https://github.com/facebook/react/blob/main/packages/eslint-plugin-react-hooks/README.md".to_string(),
             Self::EslintReactPreferFunctionComponent(_) => "https://github.com/tatethurston/eslint-plugin-react-prefer-function-component".to_string(),
             Self::EslintReactRefresh(_) => "https://github.com/ArnaudBarre/eslint-plugin-react-refresh".to_string(),

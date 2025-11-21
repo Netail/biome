@@ -1926,6 +1926,11 @@ See https://biomejs.dev/linter/rules/no-react-forward-ref
 	 */
 	noReactForwardRef?: NoReactForwardRefConfiguration;
 	/**
+	* Disallow javascript: URLs.
+See https://biomejs.dev/linter/rules/no-script-url 
+	 */
+	noScriptUrl?: NoScriptUrlConfiguration;
+	/**
 	* Disallow variable declarations from shadowing variables declared in the outer scope.
 See https://biomejs.dev/linter/rules/no-shadow 
 	 */
@@ -3580,6 +3585,9 @@ export type NoParametersOnlyUsedInRecursionConfiguration =
 export type NoReactForwardRefConfiguration =
 	| RulePlainConfiguration
 	| RuleWithNoReactForwardRefOptions;
+export type NoScriptUrlConfiguration =
+	| RulePlainConfiguration
+	| RuleWithNoScriptUrlOptions;
 export type NoShadowConfiguration =
 	| RulePlainConfiguration
 	| RuleWithNoShadowOptions;
@@ -4978,6 +4986,10 @@ export interface RuleWithNoReactForwardRefOptions {
 	level: RulePlainConfiguration;
 	options?: NoReactForwardRefOptions;
 }
+export interface RuleWithNoScriptUrlOptions {
+	level: RulePlainConfiguration;
+	options?: NoScriptUrlOptions;
+}
 export interface RuleWithNoShadowOptions {
 	level: RulePlainConfiguration;
 	options?: NoShadowOptions;
@@ -6275,6 +6287,7 @@ export type NoMisusedPromisesOptions = {};
 export type NoNextAsyncClientComponentOptions = {};
 export type NoParametersOnlyUsedInRecursionOptions = {};
 export type NoReactForwardRefOptions = {};
+export type NoScriptUrlOptions = {};
 export type NoShadowOptions = {};
 export type NoSyncScriptsOptions = {};
 export type NoTernaryOptions = {};
@@ -7107,6 +7120,7 @@ export type Category =
 	| "lint/nursery/noNextAsyncClientComponent"
 	| "lint/nursery/noParametersOnlyUsedInRecursion"
 	| "lint/nursery/noReactForwardRef"
+	| "lint/nursery/noScriptUrl"
 	| "lint/nursery/noShadow"
 	| "lint/nursery/noSyncScripts"
 	| "lint/nursery/noTernary"

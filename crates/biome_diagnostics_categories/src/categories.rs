@@ -181,6 +181,7 @@ define_categories! {
     "lint/nursery/noNextAsyncClientComponent": "https://biomejs.dev/linter/rules/no-next-async-client-component",
     "lint/nursery/noParametersOnlyUsedInRecursion": "https://biomejs.dev/linter/rules/no-parameters-only-used-in-recursion",
     "lint/nursery/noReactForwardRef": "https://biomejs.dev/linter/rules/no-react-forward-ref",
+    "lint/nursery/noScriptUrl": "https://biomejs.dev/linter/rules/no-script-url",
     "lint/nursery/noShadow": "https://biomejs.dev/linter/rules/no-shadow",
     "lint/nursery/noSyncScripts": "https://biomejs.dev/linter/rules/no-sync-scripts",
     "lint/nursery/noTernary": "https://biomejs.dev/linter/rules/no-ternary",
