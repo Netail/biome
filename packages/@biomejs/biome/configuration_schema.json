@@ -5099,6 +5099,16 @@
 			"type": "object",
 			"additionalProperties": false
 		},
+		"NoReactLeakedEventListenerConfiguration": {
+			"oneOf": [
+				{ "$ref": "#/$defs/RulePlainConfiguration" },
+				{ "$ref": "#/$defs/RuleWithNoReactLeakedEventListenerOptions" }
+			]
+		},
+		"NoReactLeakedEventListenerOptions": {
+			"type": "object",
+			"additionalProperties": false
+		},
 		"NoReactNativeDeepImportsConfiguration": {
 			"oneOf": [
 				{ "$ref": "#/$defs/RulePlainConfiguration" },
@@ -6733,6 +6743,13 @@
 					"description": "Disallow using page.waitForTimeout().\nSee https://biomejs.dev/linter/rules/no-playwright-wait-for-timeout",
 					"anyOf": [
 						{ "$ref": "#/$defs/NoPlaywrightWaitForTimeoutConfiguration" },
+						{ "type": "null" }
+					]
+				},
+				"noReactLeakedEventListener": {
+					"description": "Disallow forgetting to remove event listeners within useEffect.\nSee https://biomejs.dev/linter/rules/no-react-leaked-event-listener",
+					"anyOf": [
+						{ "$ref": "#/$defs/NoReactLeakedEventListenerConfiguration" },
 						{ "type": "null" }
 					]
 				},
@@ -9652,6 +9669,15 @@
 				"fix": { "anyOf": [{ "$ref": "#/$defs/FixKind" }, { "type": "null" }] },
 				"level": { "$ref": "#/$defs/RulePlainConfiguration" },
 				"options": { "$ref": "#/$defs/NoReactForwardRefOptions" }
+			},
+			"additionalProperties": false,
+			"required": ["level"]
+		},
+		"RuleWithNoReactLeakedEventListenerOptions": {
+			"type": "object",
+			"properties": {
+				"level": { "$ref": "#/$defs/RulePlainConfiguration" },
+				"options": { "$ref": "#/$defs/NoReactLeakedEventListenerOptions" }
 			},
 			"additionalProperties": false,
 			"required": ["level"]

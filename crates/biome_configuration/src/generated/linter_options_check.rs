@@ -957,6 +957,13 @@ pub fn config_side_rule_options_types() -> Vec<(&'static str, &'static str, Type
     ));
     result.push((
         "nursery",
+        "noReactLeakedEventListener",
+        TypeId::of::<
+            biome_rule_options::no_react_leaked_event_listener::NoReactLeakedEventListenerOptions,
+        >(),
+    ));
+    result.push((
+        "nursery",
         "noReactNativeDeepImports",
         TypeId::of::<
             biome_rule_options::no_react_native_deep_imports::NoReactNativeDeepImportsOptions,
